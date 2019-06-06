@@ -62,8 +62,5 @@ typings/
 
 *.p8
 
-# apple domain association
-apple-developer-domain-association.txt
-
 # webstorm files
 .idea/
