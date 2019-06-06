@@ -7,7 +7,7 @@ const token = jwt.sign({}, privateKey, {
     expiresIn: '2 days',
     audience: 'https://appleid.apple.com',
     issuer: '936A789GM7',
-    subject: 'com.brunokrebs.appid'
+    subject: 'com.brunokrebs.webapp'
 });
 
 console.log('The token is:', token);
