@@ -1,4 +1,5 @@
 const express = require('express');
+const session = require('express-session');
 const port = process.env.PORT || 3000;
 const passport = require('passport');
 const OAuth2Strategy = require('passport-oauth').OAuth2Strategy;
@@ -8,6 +9,12 @@ const domainAssociation = fs.readFileSync('./apple-developer-domain-association.
 const appleStrategy = 'apple';
 
 const app = express();
+
+app.use(session({
+    secret: 'secret',
+    saveUninitialized: false,
+    resave: false
+}));
 
 app.use(passport.initialize());
 app.use(passport.session());
