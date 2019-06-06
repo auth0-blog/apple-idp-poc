@@ -4,6 +4,7 @@ const port = process.env.PORT || 3000;
 const passport = require('passport');
 const OAuth2Strategy = require('passport-oauth').OAuth2Strategy;
 const fs = require('fs');
+const jwt = require('jsonwebtoken');
 
 const domainAssociation = fs.readFileSync('./apple-developer-domain-association.txt', 'utf8');
 const appleStrategy = 'apple';
@@ -50,6 +51,10 @@ app.get('/callback', passport.authenticate(appleStrategy, {
   successRedirect: '/',
   failureRedirect: '/login',
 }));
+
+app.get('/profile', (req, res) => {
+  res.send(jwt.decode(req.session.passport.user.payload.id_token, {complete: true}));
+});
 
 app.get('/', (req, res) => {
   console.log('User', req.user);
