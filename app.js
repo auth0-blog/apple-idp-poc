@@ -17,7 +17,8 @@ passport.use('apple', new OAuth2Strategy({
     tokenURL: 'https://appleid.apple.com/auth/token',
     clientID: process.env.CLIENT_ID,
     clientSecret: process.env.CLIENT_SECRET,
-    callbackURL: process.env.CALLBACK
+    callbackURL: process.env.CALLBACK,
+    state: Date.now(),
   },
   (accessToken, refreshToken, payload, profile, done) => {
     done(null, { profile, payload });
