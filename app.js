@@ -59,7 +59,7 @@ app.get("/auth/apple", passport.authenticate(appleStrategy));
 app.get(
   "/callback",
   passport.authenticate(appleStrategy, {
-    successRedirect: "/",
+    successRedirect: "/profile",
     failureRedirect: "/login"
   })
 );
