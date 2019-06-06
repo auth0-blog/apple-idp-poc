@@ -6,6 +6,17 @@ Read more at: https://auth0.com/blog/sign-in-with-apple-learn-about-the-new-iden
 
 ## Useful commands
 
+To generate the `CLIENT_SECRET`:
+
+```bash
+export CLIENT_ID=com.brunokrebs.webapp
+export TEAM_ID=936A789GM7
+
+# you need the authkey.p8 file (check the article)
+node generate-secret.js
+``` 
+
+To run the web application:
 
 ```bash
 export CLIENT_ID=com.brunokrebs.webapp
