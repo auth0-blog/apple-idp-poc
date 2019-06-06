@@ -34,7 +34,7 @@ passport.use(
       clientID: process.env.CLIENT_ID,
       clientSecret: process.env.CLIENT_SECRET,
       callbackURL: process.env.CALLBACK,
-      state: Date.now()
+      state: Date.now() // bleh
     },
     (accessToken, refreshToken, payload, profile, done) => {
       done(null, { profile, payload });
